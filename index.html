@@ -5,6 +5,22 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #outerContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #innerContainer {
+            border: 1px solid black;
+            padding: 20px;
+        }
+        #contentContainer {
+            border: 1px solid gray;
+            padding: 10px;
         }
         #myButton {
             background-color: #4CAF50;
@@ -36,50 +52,58 @@
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
+            display:inline-block; 
+            font-size:16px; 
+            margin:4px 2px; 
+            cursor:pointer; 
         }
     </style>
 </head>
 <body>
-    <button id="myButton">DOWLOAD</button>
-    <div id="loadingBar" style="display: none;">
-        <div id="loadingBarProgress"></div>
-    </div>
-    <div id="messageBox" style="display: none;">
-        <p style="color:red;">ĐÂY LÀ PHIÊN BẢN MIỄN PHÍ NÊN CHÚNG TÔI XIN PHIỀN TRỪ TRÁCH NGHIỆM</p>
-        <button id="acceptButton">Đồng Ý</button>
-        <button id="declineButton">Từ Chối</button>
-    </div>
+    <div id="outerContainer">
+        <div id="innerContainer">
+            <div id="contentContainer">
+                <button id="myButton">Click me!</button>
+                <div id="loadingBar" style="display:none;">
+                    <div id="loadingBarProgress"></div>
+                </div>
+                <div id="messageBox" style="display:none;">
+                    <p style="color:red;">ĐÂY LÀ PHIÊN BẢN MIỄN PHÍ NÊN CHÚNG TÔI XIN PHIỀN TRỪ TRÁCH NGHIỆM</p>
+                    <button id="acceptButton">Đồng Ý</button>
+                    <button id="declineButton">Từ Chối</button>
+                </div>
+             </div>
+         </div>
+     </div>
     <script>
         document.getElementById("myButton").onclick = function() {
-            document.getElementById("loadingBar").style.display = "block";
-            var progress = 0;
-            var interval = setInterval(function() {
-                progress += 1;
-                document.getElementById("loadingBarProgress").style.width = progress + "%";
-                if (progress === 100) {
-                    clearInterval(interval);
-                    document.getElementById("messageBox").style.display = "block";
-                }
-            }, 100);
-        };
-        document.getElementById("acceptButton").onclick = function() {
-            window.location.href = "https://mega.nz/file/mnIREY7K#IkqjXi9o9u78QTMnyY6wpTLn0VMPNkRkWSiXXNX0KMQ";
-        };
-        document.getElementById("declineButton").onclick = function() {
-            alert("Cảm Ơn Quý Vị");
-            var counter = 5;
-            var interval = setInterval(function() {
-                counter -= 1;
-                if (counter === 0) {
-                    clearInterval(interval);
-                    window.close();
-                }
-            }, 1000);
-        };
-    </script>
+             document.getElementById("loadingBar").style.display = "block";
+             var progress = 0; 
+             var interval = setInterval(function() { 
+                 progress +=1; 
+                 document.getElementById("loadingBarProgress").style.width = progress + "%"; 
+                 if (progress ===100) { 
+                     clearInterval(interval); 
+                     document.getElementById("messageBox").style.display = "block"; 
+                 } 
+             },100); 
+         }; 
+         document.getElementById("acceptButton").onclick = function() { 
+             window.location.href = "https://drive.google.com/file/d/1iShfqq4VsC9FwDyeR_8U2jjizO8By-D0/view?usp=share_link"; 
+         }; 
+         document.getElementById("declineButton").onclick = function() { 
+             alert("Cảm Ơn Quý Vị"); 
+             var counter =5; 
+             var interval = setInterval(function() { 
+                 counter -=1; 
+                 if (counter ===0) { 
+                     clearInterval(interval); window.close(); } },1000); }; 
+        var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+var currentColorIndex = 0;
+setInterval(function() {
+    document.body.style.backgroundColor = colors[currentColorIndex];
+    currentColorIndex = (currentColorIndex + 1) % colors.length;
+}, 5000);
+ </script>
 </body>
 </html>
