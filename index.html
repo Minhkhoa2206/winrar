@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #myButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        #loadingBar {
+            width: 100%;
+            background-color: #ddd;
+        }
+        #loadingBarProgress {
+            width: 0%;
+            height: 20px;
+            background-color: #4CAF50;
+        }
+        #messageBox {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        #acceptButton, #declineButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="myButton">Click me!</button>
+    <div id="loadingBar" style="display: none;">
+        <div id="loadingBarProgress"></div>
+    </div>
+    <div id="messageBox" style="display: none;">
+        <p style="color:red;">ĐÂY LÀ PHIÊN BẢN MIỄN PHÍ NÊN CHÚNG TÔI XIN PHIỀN TRỪ TRÁCH NGHIỆM</p>
+        <button id="acceptButton">Đồng Ý</button>
+        <button id="declineButton">Từ Chối</button>
+    </div>
+    <script>
+        document.getElementById("myButton").onclick = function() {
+            document.getElementById("loadingBar").style.display = "block";
+            var progress = 0;
+            var interval = setInterval(function() {
+                progress += 1;
+                document.getElementById("loadingBarProgress").style.width = progress + "%";
+                if (progress === 100) {
+                    clearInterval(interval);
+                    document.getElementById("messageBox").style.display = "block";
+                }
+            }, 100);
+        };
+        document.getElementById("acceptButton").onclick = function() {
+            window.location.href = "https://mega.nz/file/mnIREY7K#IkqjXi9o9u78QTMnyY6wpTLn0VMPNkRkWSiXXNX0KMQ";
+        };
+        document.getElementById("declineButton").onclick = function() {
+            alert("Cảm Ơn Quý Vị");
+            var counter = 5;
+            var interval = setInterval(function() {
+                counter -= 1;
+                if (counter === 0) {
+                    clearInterval(interval);
+                    window.close();
+                }
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
